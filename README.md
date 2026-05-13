@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # W02 Group Project – TaskFlow# Handcrafted Haven – Artisan Marketplace
 
 **Group Members:**  
