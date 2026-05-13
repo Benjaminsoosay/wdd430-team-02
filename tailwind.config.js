@@ -1,20 +1,26 @@
-// tailwind.config.js
-module.exports = {
-  darkMode: 'class', // enable dark mode with a class on <html>
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       colors: {
-        primary: '#3B82F6',   // blue-500
-        secondary: '#10B981', // green-500
-        accent: '#8B5CF6',    // purple-500
+        'haven-primary': '#8B5A2B',    // warm terracotta / wood
+        'haven-secondary': '#D9C5A7',  // soft linen
+        'haven-accent': '#4A7C59',     // sage green
+        'haven-background': '#FEF7E8', // cream
+        'haven-text': '#2C2B28',       // dark charcoal
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
-      boxShadow: {
-        'soft': '0 2px 8px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.02)',
+        'heading': ['Playfair Display', 'serif'],
+        'body': ['Inter', 'sans-serif'],
       },
     },
   },
   plugins: [],
 }
+export default config
