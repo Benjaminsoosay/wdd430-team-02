@@ -1,48 +1,82 @@
-# W02 Group Project – TaskFlow
+# W02 Group Project – TaskFlow# Handcrafted Haven – Artisan Marketplace
 
-**Group Members:** Alex Morgan, Jamie Lee, Taylor Chen, Sam Rivera
+**Group Members:**  
+- Emily Emerson Cotilda N  
+- Abiodun Babayode  
+- Daniel Benjamin Chinonso Iwuchukwu  
+- Morris Oliha  
+- Tafadzwa Neshiri Sibanda  
+
+**Course:** WDD 430 – Web Full-Stack Development  
+**Date:** May 13, 2026  
+
+---
 
 ## Project Purpose
-A full-stack task management application to practice collaborative development, Git workflow, and cloud deployment (Render / Vercel / Fly.io). Users can create, edit, delete, and filter tasks with secure authentication.
+
+Handcrafted Haven is a full-stack web application that connects artisans and crafters with customers who value unique, handcrafted items. The platform serves as a virtual marketplace where sellers can showcase their products, share their stories, and manage listings, while buyers can browse, filter, review, and purchase handmade goods. The project emphasises community, sustainable consumption, and support for local artisans.
+
+---
 
 ## Requirements
-- User authentication (register/login)
-- CRUD operations for tasks
-- Responsive UI (mobile/desktop)
-- Dark/light mode toggle
-- Deployed to the cloud
 
-## Technologies
-- Frontend: HTML5, Tailwind CSS, JavaScript (ES6)
-- Backend: Node.js + Express (or Python Flask)
-- Database: PostgreSQL / MongoDB
-- Version control: Git + GitHub
+### Functional Requirements
+- **Seller Profiles** – Authenticated sellers have dedicated profiles to display their craftsmanship, story, and curated product collection.
+- **Product Listings** – Artisans can list items with descriptions, pricing, and images. Buyers can browse the catalog and filter by category, price range, or other criteria.
+- **Reviews & Ratings** – Any authenticated user can leave a product rating and a written review.
+
+### Non-Functional / Design Requirements
+- **Responsive Design** – Seamless experience across mobile, tablet, and desktop.
+- **Accessibility** – WCAG 2.1 Level AA compliance.
+- **Performance & SEO** – Optimised loading and search-engine friendly.
+- **Consistent Branding** – Unified color scheme, typography, and layout.
+- **Clear Navigation** – Intuitive hierarchy and persistent navigation elements.
+
+---
+
+## Technology Stack
+
+| Layer       | Technology                          |
+|-------------|-------------------------------------|
+| Frontend    | Next.js, Tailwind CSS, JavaScript   |
+| Backend     | Node.js + Express                   |
+| Database    | PostgreSQL / MongoDB                |
+| Deployment  | Vercel (frontend), Render/Fly.io (backend) |
+| Version Control | Git + GitHub                    |
+| Project Management | GitHub Projects (Kanban)       |
+
+---
+
+## Design Theme (Evidence for W02 Planning)
+
+Our design system is defined in `tailwind.config.js` and implemented throughout the UI.
+
+### Colors
+- **Primary:** `#3B82F6` (blue‑500) – buttons, links, headers  
+- **Secondary:** `#10B981` (green‑500) – success states, accents  
+- **Accent:** `#8B5CF6` (purple‑500) – highlights, hover effects  
+- **Background:** Light mode `#F9FAFB`, Dark mode `#111827`  
+- **Text:** Light mode `#1F2937`, Dark mode `#F9FAFB`
+
+### Typography
+- **Font Family:** Inter (sans-serif) – used for all text.  
+- **Headings:** Bold weight, responsive scale (2xl to 4xl).  
+- **Body:** Regular weight, comfortable line-height (1.5).
+
+### Layout & Components
+- Centered container: `max-w-7xl mx-auto`  
+- Card‑based grid for product listings and work items  
+- Sticky header with navigation and dark mode toggle  
+- Soft shadows and hover effects (transition `card-hover`)
+
+### Dark Mode Support
+Dark mode is implemented using the `class` strategy in Tailwind. The user can toggle between themes via a button, and the preference persists in `localStorage`.
+
+---
 
 ## Setup Instructions
-1. Clone the repo:  
-   `git clone https://github.com/your-group/taskflow.git`
-2. Open `index.html` in your browser (or run `npm start` if using a backend).
-3. For full stack: `npm install` then `npm run dev`.
 
-## Theme Design (Figma link)
-[Link to Figma mockup](https://figma.com/...)  
-- **Colors:** Primary #3B82F6, Secondary #10B981, Background #F9FAFB (light) / #111827 (dark)  
-- **Typography:** Inter, sans-serif  
-- **Layout:** Centered max-w-7xl, card-based task grid, sticky header
-
-## Work Items (GitHub Project Kanban)
-See our [Project Board](https://github.com/your-group/taskflow/projects/1) for user stories:
-1. User Registration (#1)
-2. User Login (#2)
-3. Create Task (#3)
-4. Edit Task (#4)
-5. Delete Task (#5)
-6. View All Tasks (#6)
-7. Mark Task Complete (#7)
-8. Filter by Status (#8)
-9. Responsive Layout (#9)
-10. Dark/Light Mode Toggle (#10)
-... (additional items)
-
-## Deployment
-[Link to live demo](https://your-app.onrender.com)
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/Benjaminsoosay/wdd430-team-02.git
+   cd wdd430-team-02
