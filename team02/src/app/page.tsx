@@ -1,4 +1,7 @@
 import ProductCard from "@/components/ProductCard";
+import ReviewCard from "@/components/ReviewCard";
+import { reviewDB } from "@/lib/db/reviews";
+import ReviewForm from "@/components/ReviewForm";
 
 const products = [
   {
@@ -33,12 +36,18 @@ const products = [
 ];
 
 export default function Home() {
+
+  const reviews = reviewDB.getByProductId("1");
+
   return (
     <main className="max-w-7xl mx-auto px-5 py-10 bg-haven-background min-h-screen">
+
+      {/* Heading */}
       <h1 className="text-4xl font-bold text-gray-900 mb-8">
         Featured Handmade Creations
       </h1>
 
+      {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product, index) => (
           <ProductCard
@@ -51,6 +60,27 @@ export default function Home() {
           />
         ))}
       </div>
+
+      {/* Reviews Section */}
+      <section className="mt-16 bg-gray-50 p-6 rounded-3xl">
+
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Customer Reviews
+        </h2>
+
+        <div className="space-y-4">
+          {reviews.map((review) => (
+            <ReviewCard
+              key={review.id}
+              review={review}
+            />
+          ))}
+        </div>
+<div className="mt-10">
+  <ReviewForm />
+</div>
+      </section>
+
     </main>
   );
 }
