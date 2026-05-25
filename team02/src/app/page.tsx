@@ -34,9 +34,8 @@ const products = [
 
 export default function Home() {
   return (
-    <main className="max-w-7xl mx-auto px-5 py-10 bg-gray-50 min-h-screen">
-
-      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+    <main className="max-w-7xl mx-auto px-5 py-10 bg-haven-background min-h-screen">
+      <h1 className="text-4xl font-bold text-gray-900 mb-8">
         Featured Handmade Creations
       </h1>
 
@@ -52,7 +51,6 @@ export default function Home() {
           />
         ))}
       </div>
-
     </main>
   );
 }
