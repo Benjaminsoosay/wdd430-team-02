@@ -12,6 +12,8 @@ export interface CreateReviewDTO {
   productId: string;
   rating: number;
   comment: string;
+  userId: string;
+  userName: string;
 }
 
 export interface ProductWithRating {

@@ -1,3 +1,114 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
+﻿@import "tailwindcss";
+
+@theme {
+  --color-haven-primary: #8b5a2b;
+  --color-haven-secondary: #d9c5a7;
+  --color-haven-accent: #4a7c59;
+  --color-haven-background: #fef7e8;
+  --color-haven-text: #2c2b28;
+  
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-haven-background text-haven-text font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  h1 { @apply text-2xl sm:text-4xl; }
+  h2 { @apply text-xl sm:text-3xl; }
+  h3 { @apply text-lg sm:text-2xl; }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden;
+  }
+
+  .card-hover {
+    @apply hover:transform hover:scale-105 hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-haven-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-haven-secondary text-haven-primary font-semibold rounded-lg hover:shadow-lg transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-accent {
+    @apply px-6 py-3 bg-haven-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200;
+  }
+
+  .btn-accent:hover {
+    opacity: 0.9;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-haven-primary mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-haven-accent mb-8 sm:mb-12;
+  }
+
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

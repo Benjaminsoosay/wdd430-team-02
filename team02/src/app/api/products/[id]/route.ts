@@ -4,10 +4,11 @@ import { productDB } from '@/lib/db/products';
 // GET /api/products/[id] - Get single product
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const product = productDB.getById(params.id);
+    const { id } = await params;
+    const product = productDB.getById(id);
     
     if (!product) {
       return NextResponse.json(
@@ -28,11 +29,12 @@ export async function GET(
 // PUT /api/products/[id] - Update product
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const updatedProduct = productDB.update(params.id, body);
+    const updatedProduct = productDB.update(id, body);
     
     if (!updatedProduct) {
       return NextResponse.json(
@@ -53,10 +55,11 @@ export async function PUT(
 // DELETE /api/products/[id] - Delete product
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const deleted = productDB.delete(params.id);
+    const { id } = await params;
+    const deleted = productDB.delete(id);
     
     if (!deleted) {
       return NextResponse.json(

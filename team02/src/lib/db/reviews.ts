@@ -30,8 +30,30 @@ export const reviewDB = {
     const productReviews = reviews.filter(r => r.productId === productId);
     const totalReviews = productReviews.length;
     
-    const ratings = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+    const ratings: ProductWithRating['ratings'] = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
     let sum = 0;
     
     productReviews.forEach(review => {
-      ratings[review.rating as keyof typeof ratings
+      ratings[review.rating as keyof ProductWithRating['ratings']]++;
+      sum += review.rating;
+    });
+
+    const averageRating = totalReviews > 0 ? sum / totalReviews : 0;
+
+    return {
+      averageRating,
+      totalReviews,
+      ratings,
+    };
+  },
+
+  create: (data: CreateReviewDTO): Review => {
+    const newReview: Review = {
+      id: `rev${Date.now()}`,
+      ...data,
+      createdAt: new Date().toISOString(),
+    };
+    reviews.push(newReview);
+    return newReview;
+  },
+};
