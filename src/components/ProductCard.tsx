@@ -30,7 +30,7 @@ export default function ProductCard({ id, name, price, category, artisan, rating
 
   return (
     <Link 
-      href={/products/}
+      href={`/products/${id}`}
       style={{
         textDecoration: "none",
         color: "inherit",
@@ -95,7 +95,7 @@ export default function ProductCard({ id, name, price, category, artisan, rating
               fontWeight: 700,
               color: "#7c5f4b"
             }}>
-              
+              ${price.toFixed(2)}
             </span>
             <div style={{
               display: "flex",
