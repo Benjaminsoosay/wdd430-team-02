@@ -1,4 +1,4 @@
-import { Seller } from '@/types/seller';
+import { Seller } from '../../types/seller';
 
 export const sellers: Seller[] = [
   {

@@ -1,5 +1,5 @@
-import ProductCard from '@/components/ProductCard';
-import { getAllProducts } from '@/lib/db/products';
+import ProductCard from '../../components/ProductCard';
+import { getAllProducts } from '../../lib/db/products';
 
 export default async function Home() {
   const products = await getAllProducts();
