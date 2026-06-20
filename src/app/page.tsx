@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Product {
   id: string;
@@ -20,7 +21,6 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Real product data with images
     const featuredProducts: Product[] = [
       {
         id: '1',
@@ -77,7 +77,7 @@ export default function HomePage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading featured products...</p>
+          <p className="mt-4 text-gray-600">Loading...</p>
         </div>
       </div>
     );
@@ -86,21 +86,21 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Welcome to Artisan Marketplace</h1>
-          <p className="text-xl mb-8">Discover unique handcrafted products from talented artisans</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Artisan Marketplace</h1>
+          <p className="text-lg md:text-xl mb-8">Discover unique handcrafted products from talented artisans</p>
           <Link 
             href="/products" 
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+            className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
           >
             Shop Now
           </Link>
         </div>
-      </section>
+      </div>
 
       {/* Featured Products Section */}
-      <section className="py-16">
+      <div className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Featured Products</h2>
           
@@ -113,12 +113,13 @@ export default function HomePage() {
                     alt={product.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/placeholder-product.svg';
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/placeholder-product.svg';
                     }}
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
+                  <h3 className="font-semibold text-lg mb-1 truncate">{product.name}</h3>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">{product.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-blue-600 font-bold text-xl"></span>
@@ -147,7 +148,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
