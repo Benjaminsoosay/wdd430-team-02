@@ -1,5 +1,7 @@
 ﻿'use client';
 
+import { useState } from 'react';
+
 interface Product {
   id: string;
   name: string;
@@ -13,26 +15,36 @@ interface Product {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
+  const [imgError, setImgError] = useState(false);
+
   return (
-    <div className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-      <div className="relative h-48 bg-gray-100">
-        <img
-          src={product.image || '/placeholder-product.jpg'}
-          alt={product.name}
-          className="w-full h-full object-contain p-4"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = '/placeholder-product.jpg';
-          }}
-        />
+    <div className="border rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 bg-white h-full flex flex-col">
+      <div className="relative h-48 bg-gray-100 flex-shrink-0">
+        {!imgError ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+            onError={() => setImgError(true)}
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-gray-200">
+            <span className="text-gray-400 text-sm text-center px-2">
+              <div className="text-4xl mb-1">📷</div>
+              No Image
+            </span>
+          </div>
+        )}
       </div>
-      <div className="p-4">
-        <h3 className="font-semibold text-lg mb-1 truncate">{product.name}</h3>
-        <p className="text-gray-600 text-sm mb-2 line-clamp-2">{product.description}</p>
-        <div className="flex justify-between items-center">
-          <span className="text-blue-600 font-bold">\</span>
+      <div className="p-4 flex flex-col flex-grow">
+        <h3 className="font-semibold text-lg mb-1 line-clamp-1">{product.name}</h3>
+        <p className="text-gray-600 text-sm mb-2 line-clamp-2 flex-grow">{product.description}</p>
+        <div className="flex justify-between items-center mt-2">
+          <span className="text-blue-600 font-bold"></span>
           <div className="flex items-center">
             <span className="text-yellow-400">★</span>
-            <span className="ml-1 text-sm">{product.rating}</span>
+            <span className="ml-1 text-sm font-medium">{product.rating}</span>
             <span className="ml-1 text-xs text-gray-400">({product.reviews})</span>
           </div>
         </div>
