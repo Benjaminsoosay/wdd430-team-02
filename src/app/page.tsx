@@ -1,4 +1,7 @@
-﻿import Link from 'next/link';
+﻿'use client';
+
+import Link from 'next/link';
+import { useState } from 'react';
 
 const products = [
   {
@@ -36,6 +39,12 @@ const products = [
 ];
 
 export default function HomePage() {
+  const [imgErrors, setImgErrors] = useState<{ [key: string]: boolean }>({});
+
+  const handleImageError = (productId: string) => {
+    setImgErrors(prev => ({ ...prev, [productId]: true }));
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -61,13 +70,10 @@ export default function HomePage() {
               <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="h-48 bg-gray-100 flex items-center justify-center">
                   <img
-                    src={product.image}
+                    src={imgErrors[product.id] ? '/placeholder-product.svg' : product.image}
                     alt={product.name}
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/placeholder-product.svg';
-                    }}
+                    onError={() => handleImageError(product.id)}
                   />
                 </div>
                 <div className="p-4">
