@@ -1,0 +1,5 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'>
+  <rect width='400' height='400' fill='#F57C00'/>
+  <text x='50%' y='45%' font-family='Arial' font-size='40' fill='white' text-anchor='middle'>☕</text>
+  <text x='50%' y='55%' font-family='Arial' font-size='20' fill='#ffe0b2' text-anchor='middle'>Coffee Mug</text>
+</svg>
