@@ -65,12 +65,13 @@ export default function HomePage() {
                     alt={product.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/placeholder-product.svg';
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/placeholder-product.svg';
                     }}
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
+                  <h3 className="font-semibold text-lg mb-1 truncate">{product.name}</h3>
                   <p className="text-gray-600 text-sm mb-2 line-clamp-2">{product.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-blue-600 font-bold text-xl"></span>
@@ -80,7 +81,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <Link 
-                    href={"/products/" + product.id}
+                    href={'/products/' + product.id}
                     className="mt-3 block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors"
                   >
                     View Details
